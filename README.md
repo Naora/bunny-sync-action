@@ -51,7 +51,7 @@ jobs:
         run: npm ci && npm run build
 
       - name: Sync to BunnyCDN
-        uses: your-username/bunny-sync-action@2026.05.21
+        uses: Naora/bunny-sync-action@2026.05.21
         with:
           storage_zone_name: ${{ secrets.BUNNY_STORAGE_ZONE }}
           storage_access_key: ${{ secrets.BUNNY_ACCESS_KEY }}
