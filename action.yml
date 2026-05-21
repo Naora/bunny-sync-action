@@ -1,0 +1,33 @@
+name: Bunny Sync Action
+description: A GitHub Action to synchronize files with BunnyCDN Storage.
+
+inputs:
+  storage_zone_name:
+    description: "The name of the BunnyCDN Storage Zone."
+    required: true
+  storage_access_key:
+    description: "The access key for the BunnyCDN Storage Zone."
+    required: true
+  local_directory:
+    description: "The local directory to synchronize with BunnyCDN Storage."
+    required: true
+  remote_directory:
+    description: "The remote directory in BunnyCDN Storage to synchronize with."
+    default: "/"
+  delete:
+    description: "Whether to delete files in the remote directory that are not present in the local directory. (true/false)"
+    default: "false"
+  region:
+    description: "BunnyCDN storage region (e.g. de, ny, la, sg, se). Defaults to Falkenstein (de) when omitted."
+    default: "de"
+  dry_run:
+    description: "Whether to perform a dry run (only show what would be synchronized without making any changes). (true/false)"
+    default: "false"
+
+outputs:
+  sync_result:
+    description: "The result of the synchronization process."
+
+runs:
+  using: node24
+  main: "dist/index.js"

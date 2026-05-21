@@ -1,0 +1,25 @@
+{
+  "name": "bunny-sync-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rolldown -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1",
+    "@bunny.net/storage-sdk": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "rolldown": "^1.0.2",
+    "typescript": "^6.0.3"
+  }
+}
