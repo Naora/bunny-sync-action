@@ -20126,6 +20126,12 @@ try {
 	const syncPlan = buildSyncPlan(remoteFiles, await scanLocalFiles(baseDir), shouldDelete);
 	info(`Sync plan: ${syncPlan.length} operation(s).`);
 	if (!dryRun) await executeSyncPlan(baseDir, remoteDir, syncPlan, storageZone);
+	else {
+		info("Dry run enabled — no changes will be made. Planned operations:");
+		syncPlan.forEach((op) => {
+			info(`${op.type}: ${op.filePath}`);
+		});
+	}
 	const syncResult = `Uploaded: ${syncPlan.filter((o) => o.type === "upload").length}, Deleted: ${syncPlan.filter((o) => o.type !== "upload").length}`;
 	setOutput("sync_result", syncResult);
 	info(`Sync complete — ${syncResult}`);
